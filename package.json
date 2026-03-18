@@ -1,0 +1,27 @@
+{
+  "name": "threejs-mvc-example",
+  "version": "1.0.0",
+  "description": "Three.js MVC Example",
+  "source": "index.html",
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html --public-url ./",
+    "benchmark:setup": "npx playwright install && npx playwright install-deps",
+    "benchmark:start": "npx playwright test src/benchmark/benchmark.spec.ts",
+    "benchmark": "concurrently --no-persist --kill-others --success first 'npm run start' 'wait-on http://localhost:1234 && npm run benchmark:start'"
+  },
+  "dependencies": {
+    "stats.js": "^0.17.0",
+    "three": "0.181.0"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.57.0",
+    "@types/node": "^24.10.1",
+    "@types/stats.js": "^0.17.4",
+    "@types/three": "0.181.0",
+    "parcel": "^2.16.1",
+    "typescript": "^5.9.3",
+    "concurrently": "^9.2.1",
+    "wait-on": "^9.0.3"
+  }
+}
