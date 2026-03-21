@@ -12,7 +12,7 @@ test('Performance test', async ({ page }) => {
 
   if (!canvas) throw new Error('Canvas not found');
 
-  await page.waitForTimeout(3000);
+  await page.waitForTimeout(10000);
   await page.evaluate(() => window.__performance.reset());
   await performRandomMoves(page, canvas, 10);
 
